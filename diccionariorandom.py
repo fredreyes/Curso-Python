@@ -37,24 +37,27 @@ def generar_diccionario_estudiantes():
 
 def imprimirestudiante():
 	dic = generar_diccionario_estudiantes()
-
-
 	for llave, valor in dic.iteritems():
-            #print 'el estudiente %s de la edad de %s, es de la ciudad de %s y cursa el anio %s en la universidad' % (llave,valor)
             print 'El alumno {alumno} es de la edad de {edad} ciudad de {cuidad} y cursa el anio{anio}'.format(alumno=llave , edad=valor['edad'], cuidad=valor['cuidad'], anio=valor['anio'])
-def estudianteManagua():
-    dic = generar_diccionario_estudiantes()
+            
 
+def estudianteManagua():
+    archivo = open('ww.txt', 'w')
+    dic = generar_diccionario_estudiantes()
     for llave, valor in dic.iteritems():
-        if 'Managua' in valor['cuidad']:
-            print 'EL Alumno {alumno} de la edad de {edad}, es de la ciudad de {cuidad} y cursa el anio {anio} en la Universidad'.format(alumno=llave, edad=valor['edad'], cuidad=valor['cuidad'], anio=valor['anio'])
+        if 'Managua' == valor['cuidad']:
+            linea = 'EL Alumno {alumno} de la edad de {edad}, es de la ciudad de {cuidad} y cursa el anio {anio} en la Universidad \n'.format(alumno=llave, edad=valor['edad'], cuidad=valor['cuidad'], anio=valor['anio'])
+            archivo.write(linea)
+            print '=========', linea
+    archivo.close()
+
 
 def  estudiantesMasayaprimeranio():
     dic = generar_diccionario_estudiantes()
     x = 1
     for llave, valor in dic.iteritems():
         if 'Masaya' == valor['cuidad'] and x == valor['anio']:
-            print 'El alumno {estudiante} de la edad de {ed}, es de la ciudad de {ciudad} y cursa el anio {anio} en la universidad'.format(estudiante=llave, ed=valor['edad'], ciudad=valor['cuidad'], anio=valor['anio'])
+            print 'El alumno {estudiante} de la edad de {ed}, es de la ciudad de {ciudad} y cursa el anio {anio} en la universidad \n'.format(estudiante=llave, ed=valor['edad'], ciudad=valor['cuidad'], anio=valor['anio'])
 
 def estudiantemenode21():
     dic = generar_diccionario_estudiantes()
@@ -77,6 +80,10 @@ if __name__ == '__main__':
     print 'SOLO MENORES DE 21 ANIOS'
     estudiantemenode21()
 
+  
+    
+
+ 
 # - Crear un script que genere el diccionario de estudiantes
 #   usando "generar_diccionario_estudiantes"
 
