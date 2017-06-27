@@ -49,6 +49,7 @@ def estudianteManagua():
             linea = ('EL Alumno {alumno} de la edad de {edad}, '
                 'es de la ciudad de {cuidad} y cursa el anio {anio} '
                 'en la Universidad \n')
+            
             linea_formateada = linea.format(
                 alumno=llave,
                 edad=valor['edad'],
