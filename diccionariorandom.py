@@ -46,9 +46,18 @@ def estudianteManagua():
     dic = generar_diccionario_estudiantes()
     for llave, valor in dic.iteritems():
         if 'Managua' == valor['cuidad']:
-            linea = 'EL Alumno {alumno} de la edad de {edad}, es de la ciudad de {cuidad} y cursa el anio {anio} en la Universidad \n'.format(alumno=llave, edad=valor['edad'], cuidad=valor['cuidad'], anio=valor['anio'])
-            archivo.write(linea)
-            print '=========', linea
+            linea = ('EL Alumno {alumno} de la edad de {edad}, '
+                'es de la ciudad de {cuidad} y cursa el anio {anio} '
+                'en la Universidad \n')
+            linea_formateada = linea.format(
+                alumno=llave,
+                edad=valor['edad'],
+                cuidad=valor['cuidad'],
+                anio=valor['anio']
+            )
+
+            archivo.write(linea_formateada)
+            print '=========', linea_formateada
     archivo.close()
 
 
