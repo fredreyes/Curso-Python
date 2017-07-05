@@ -2,8 +2,8 @@
 <html>
 <head>
 	<title>Fomulario</title>
-    <link rel="stylesheet" href="pagina/estilos.css">
-</head>
+    <link rel="stylesheet" href="estilo/estilos.css">
+    {% load static from staticfiles %}
 <body>
 <header class="header2">
    <div class="wraper">
@@ -17,18 +17,19 @@
    </div>   
 </header>
 <section>
-    <p>AQUI Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi earum consequuntur iusto quo minima perspiciatis eos alias reprehenderit consectetur, incidunt soluta ipsum cum optio, dolore odit reiciendis rerum nulla facere.</p>
-     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi earum consequuntur iusto quo minima perspiciatis eos alias reprehenderit consectetur, incidunt soluta ipsum cum optio, dolore odit reiciendis rerum nulla facere.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi earum consequuntur iusto quo minima perspiciatis eos alias reprehenderit consectetur, incidunt soluta ipsum cum optio, dolore odit reiciendis rerum nulla facere.</p>
-       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi earum consequuntur iusto quo minima perspiciatis eos alias reprehenderit consectetur, incidunt soluta ipsum cum optio, dolore odit reiciendis rerum nulla facere.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi earum consequuntur iusto quo minima perspiciatis eos alias reprehenderit consectetur, incidunt soluta ipsum cum optio, dolore odit reiciendis rerum nulla facere.</p>
-         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi earum consequuntur iusto quo minima perspiciatis eos alias reprehenderit consectetur, incidunt soluta ipsum cum optio, dolore odit reiciendis rerum nulla facere.</p>      
+
+    <h1> {{encabezado}} </h1>
+
+    <p>ESto esta definifo en base.html</p>
+    {% block contenido %}
+    {% endblock %}
+   
 </section>
 <div class="contenedor">
     <h2>Registro</h2>
         <form action="" class="formulario">
 	        <input type="text" name="nombre" placeholder="&#128102; Ingrese Nombre" required class="input">
-	        <input type="Date" name="fecha" required class="input">
+	        <input type="datetime" name="fecha" required class="input">
 	        <button type="submit" class="boton">Ingresar</button>
         </form>
 </div>
