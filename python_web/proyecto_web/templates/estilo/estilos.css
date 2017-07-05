@@ -1,0 +1,122 @@
+header{
+    width: 100%;
+    overflow: hidden;
+    background: #252932;
+    margin-bottom: 20px;
+}
+ 
+.wraper{
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.contenedor{
+    background:  #1C7EA6;
+    box-shadow: #4d4d4d 0px 10px 30px;
+    border-radius: 5px;
+    height: auto;
+    max-width: 400px;
+    margin: 5% auto;
+    padding: 1 rem;
+    text-align: center;
+}
+
+header .cheader{
+    color: #f2f2f2;
+    font-size: 50px;
+    line-height: 200px;
+    float: left;
+}
+
+header nav{
+    float: right;
+    line-height: 200px;
+}
+header nav a{
+    display: inline;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    line-height: normal;
+    font-size: 20px;
+    font-weight: bold;
+    -webkit-transition: 500ms ease;
+    -o-transition: 500ms ease;
+    transition: 500ms ease;
+}
+header nav a:hover{
+    background: #f5673a;
+    border-radius: 50px;
+}
+
+.header2 {
+    top: 1px;
+    position: fixed;
+    height: 100px;
+   
+}
+.header2 .cheader{
+    line-height: 100px;
+    font-size: 30px;
+   
+}
+.header2 nav{
+    line-height: 100px;
+}
+
+h2{
+    text-transform: uppercase;
+    color: #FFF;
+    font-weight: bold;
+    font-size:  18px;
+}
+
+.input{
+    display: block;
+    width: 80%;
+}
+.input{
+    outline: 0;
+    padding: .5rem;
+    margin: .5rem auto;
+}
+.boton{
+margin-bottom: 10px;    
+}
+section{
+    margin-top: 10%;
+};
+
+section p{
+    text-align: justify;
+}
+
+
+
+@media (max-width: 800px)
+{
+   
+.contendor
+    {
+        margin: 25% auto;
+        max-width: inherit;
+        padding: 1rem 0;
+        width: 100%;
+    }
+    header .cheader,
+    header nav{
+        width: 100%;
+        text-align: center;
+        line-height: 100px;
+      
+    }
+    .header2{
+        height: auto;
+    }
+    .header2 .cheader,
+    .header2 nav{
+        line-height: 50px;
+    }
+}
