@@ -42,6 +42,9 @@ class MiVentana(Gtk.Window):
 	    change = self.texto.get_text()
 	    self.label.set_markup(change) 
 
+	 def agregarLista(self):
+	 	
+
 
 if __name__ == '__main__':
 	ventana = MiVentana()
