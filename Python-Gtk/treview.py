@@ -67,7 +67,7 @@ class MiVentana(Gtk.Window):
 
 	 	descripcion = Gtk.CellRendererText()
 	 	columna_descripcion = Gtk.TreeViewColumn('descripcion', descripcion, text=0)
-	 	Gtk.TreeViewColumn.get_resizable(columna_descripcion)
+	 	
 
 	 	monto = Gtk.CellRendererText()
 	 	columna_monto = Gtk.TreeViewColumn('Monto', monto, text=1)
@@ -83,7 +83,7 @@ class MiVentana(Gtk.Window):
 	 		self.lista_activos,
 	 		self.boton,
 	 		Gtk.PositionType.BOTTOM,
-	 		1,
+	 		3,
 	 		1
 	 		)
 	def agregar_fila(self, btn):
