@@ -11,7 +11,17 @@ class MiVentana(Gtk.Window):
 		
 		self.agregar_contendor()
 		self.agregar_entrada()
+		self.agregar_entrada_monto()
 		self.agregar_boton()
+		self.agregar_lista()
+
+	#contenedor.attach(
+	#boton, #elemento
+	#0, #columna
+	#0, #fila
+	#3, #no columnas a usar
+	#1, # no filas a usar
+	#)
 
 	def agregar_contendor(self):
 		self.contenedor = Gtk.Grid()
@@ -20,7 +30,11 @@ class MiVentana(Gtk.Window):
 
 	def agregar_entrada(self):
 		self.entrada = Gtk.Entry()
-		self.contenedor.attach(self.entrada, 0,0,1,1)
+		self.contenedor.attach(self.entrada, 0,0,2,1)
+
+	def agregar_entrada_monto(self):
+		self.entrada_monto = Gtk.Entry()
+		self.contenedor.attach(self.entrada_monto, 2,0,1,1)
 
 	def agregar_boton(self):
 		self.boton = Gtk.Button('Agregar')
@@ -28,10 +42,11 @@ class MiVentana(Gtk.Window):
 			self.boton,
 			self.entrada,
 			Gtk.PositionType.BOTTOM,
-			1,
+			3,
 			1)
+		self.boton.connect('clicked', self.agregar_fila)
 
-	def agregar_Lista(self):
+	def agregar_lista(self):
 		"""
 
 	 	1 pasos  crear un treview
@@ -45,20 +60,24 @@ class MiVentana(Gtk.Window):
 	 	4.3 agregar cada TreeViewColumn  al TreeView widget
 	 	"""
 
-	 	self.modelo = Gtk.ListStore(str, float)
-
-	 	self.modelo.append(['valor 1', 1.5])
+	 	self.modelo = Gtk.ListStore(str, float, str)
+	 	#self.modelo.append(['valor 1', 1.5, 'Cancelado'])
 
 	 	self.lista_activos = Gtk.TreeView(self.modelo)
 
 	 	descripcion = Gtk.CellRendererText()
 	 	columna_descripcion = Gtk.TreeViewColumn('descripcion', descripcion, text=0)
+	 	Gtk.TreeViewColumn.get_resizable(columna_descripcion)
 
 	 	monto = Gtk.CellRendererText()
 	 	columna_monto = Gtk.TreeViewColumn('Monto', monto, text=1)
 
+	 	estado = Gtk.CellRendererText()
+	 	columna_estado = Gtk.TreeViewColumn('Estado', estado, text=2)
+
 	 	self.lista_activos.append_column(columna_descripcion)
 	 	self.lista_activos.append_column(columna_monto)
+	 	self.lista_activos.append_column(columna_estado)
 
 	 	self.contenedor.attach_next_to(
 	 		self.lista_activos,
@@ -67,12 +86,15 @@ class MiVentana(Gtk.Window):
 	 		1,
 	 		1
 	 		)
-
-	 	
-
-
-
-
+	def agregar_fila(self, btn):
+	  	texto = self.entrada.get_text()
+	  	tmonto = self.entrada_monto.get_text()
+	  	m =  float(tmonto)
+	  	lista = self.entrada.get_text()
+		if len(lista) >0:
+			self.modelo.append([texto,m, 'Activo'])
+		
+		
 
 if __name__ == '__main__':
 	ventana = MiVentana()
