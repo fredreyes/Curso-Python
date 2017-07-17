@@ -16,6 +16,7 @@ class VentanaBalance(Gtk.Window):
 		self.agregar_entradas_activos()
 		self.agregar_boton_activo()
 		self.agregar_lista_activos()
+		self.agregar_label_Pasivo()
 
 
 
@@ -66,7 +67,15 @@ class VentanaBalance(Gtk.Window):
 		lista = self.entradaA.get_text()
 		if len(lista) >0:
 			self.modeloA.append([texto,float(tmontoA)])
-		
+
+
+
+			# pasivos
+
+
+	def agregar_label_Pasivo(self):
+		self.lpasivo = Gtk.Label('Pasivos')
+		self.contenedor.attach_next_to(self.lpasivo, self.listaA, Gtk.PositionType.BOTTOM,1,2)
 		
 
 
