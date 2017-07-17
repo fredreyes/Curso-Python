@@ -93,8 +93,15 @@ class MiVentana(Gtk.Window):
 	  	lista = self.entrada.get_text()
 		if len(lista) >0:
 			self.modelo.append([texto,m, 'Activo'])
-		
-		
+
+							#BALANCE PASIVO
+	def agregar_contenedor_pasivo(self):
+		self.contedorPasivo = Gtk.Grid()
+		self.contedorPasivo.set_column_homogeneous(True)
+		self.add(self.contedorPasivo)
+
+	def agregar_label_pasivo():
+		pass
 
 if __name__ == '__main__':
 	ventana = MiVentana()

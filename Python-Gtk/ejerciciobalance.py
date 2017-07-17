@@ -38,6 +38,7 @@ class VentanaBalance(Gtk.Window):
 	def agregar_boton_activo(self):
 		self.boton_activo = Gtk.Button('Agregar Activo')
 		self.contenedor.attach(self.boton_activo, 1,2,1,1)
+		self.boton_activo.connect('clicked', self.agregar_fila_activo)
 
 	def agregar_lista_activos(self):
 		self.modeloA = Gtk.ListStore(str, float)
@@ -59,6 +60,13 @@ class VentanaBalance(Gtk.Window):
 			1,
 			1
 			)
+	def agregar_fila_activo(self, btn):
+		texto = self.entradaA.get_text()
+		tmontoA = self.montoA.get_text()
+		lista = self.entradaA.get_text()
+		if len(lista) >0:
+			self.modeloA.append([texto,float(tmontoA)])
+		
 		
 
 
