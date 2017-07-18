@@ -182,9 +182,12 @@ class VentanaBalance(Gtk.Window):
 
 	# ***************************************SUMAR ACTIVOS ***************************
 	#def sumar_activos(self, btn):
-	#	for x in self.modeloA():
+	#	for x in self.modeloA:
 	#		o = self.lmtotalA= self.lmtotalA[1]+ x
+		#mostrar indice	
+		#x[1]
 	#		self.lmtotalA.set_markup(float(o))
+	 
 
 
 if __name__ == '__main__':
