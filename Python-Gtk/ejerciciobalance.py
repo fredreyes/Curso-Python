@@ -20,6 +20,10 @@ class VentanaBalance(Gtk.Window):
 		self.agregar_entradas_pasivos()
 		self.agregar_boton_pasivo()
 		self.agregar_lista_Pasivo()
+		self.agregar_label_total()
+		self.agrarga_label_tm_activo()
+		self.agregar_label_total_pasivo()
+		self.agrarga_label_tm_pasivo()
 
 
 	def agregar_contenedor_activo(self):
@@ -42,6 +46,7 @@ class VentanaBalance(Gtk.Window):
 		self.boton_activo = Gtk.Button('Agregar Activo')
 		self.contenedor.attach(self.boton_activo, 1,2,1,1)
 		self.boton_activo.connect('clicked', self.agregar_fila_activo)
+		self.boton_activo.connect('clicked', self.sumar_activos)
 
 	def agregar_lista_activos(self):
 		self.modeloA = Gtk.ListStore(str, float)
@@ -134,15 +139,52 @@ class VentanaBalance(Gtk.Window):
 		self.modeloP[path][1]= float(text)
 
 
-
-
-
 	def agregar_fila_pasivo(self, btn):
 		textpP = self.entradaP.get_text()
 		lmontoP = self.montoP.get_text()
 		listaPA = self.entradaP.get_text()
 		if  len(listaPA) >0:
 			self.modeloP.append([textpP, float(lmontoP)])
+
+
+	# **************************** AGREGAR TOTALES **************** 
+	def agregar_label_total(self):
+		self.ltotalA = Gtk.Label('TOTALES ACTIVOS')
+		self.contenedor.attach(self.ltotalA, 0,11,1,1)
+
+	def agrarga_label_tm_activo(self):
+		self.lmtotalA = Gtk.Label('$')
+		self.contenedor.attach_next_to(
+			self.lmtotalA,
+			self.ltotalA,
+			Gtk.PositionType.RIGHT,
+			1,
+			1)
+		
+
+	def agregar_label_total_pasivo(self):
+		self.ltotalP = Gtk.Label('TOTALES PASIVOS')
+		self.contenedor.attach_next_to(
+			self.ltotalP, 
+			self.ltotalA, 
+			Gtk.PositionType.BOTTOM,
+			1,
+			1)
+	def agrarga_label_tm_pasivo(self):
+		self.lmtotalP = Gtk.Label('$')
+		self.contenedor.attach_next_to(
+			self.lmtotalP,
+			self.ltotalP,
+			Gtk.PositionType.RIGHT,
+			1,
+			1)
+	
+
+	# ***************************************SUMAR ACTIVOS ***************************
+	#def sumar_activos(self, btn):
+	#	for x in self.modeloA():
+	#		o = self.lmtotalA= self.lmtotalA[1]+ x
+	#		self.lmtotalA.set_markup(float(o))
 
 
 if __name__ == '__main__':
