@@ -5,12 +5,13 @@ from gi.repository import Gtk
 
 
 
-class VentanaBalance(Gtk.Window):
+class VentanaBalance(Gtk.ApplicationWindow):
 	
 	def __init__(self, *args, **kwargs):
 		super(VentanaBalance, self).__init__(*args, **kwargs)
 		self.set_default_size(800, 400)
-		self.connect('delete-event', Gtk.main_quit)
+		#self.connect('delete-event', Gtk.main_quit)
+		
 		self.agregar_contenedor_activo()
 		self.agregar_label_activo()
 		self.agregar_entradas_activos()
@@ -46,7 +47,7 @@ class VentanaBalance(Gtk.Window):
 		self.boton_activo = Gtk.Button('Agregar Activo')
 		self.contenedor.attach(self.boton_activo, 1,2,1,1)
 		self.boton_activo.connect('clicked', self.agregar_fila_activo)
-		self.boton_activo.connect('clicked', self.sumar_activos)
+		#self.boton_activo.connect('clicked', self.sumar_activos)
 
 	def agregar_lista_activos(self):
 		self.modeloA = Gtk.ListStore(str, float)
@@ -187,13 +188,11 @@ class VentanaBalance(Gtk.Window):
 		#mostrar indice	
 		#x[1]
 	#		self.lmtotalA.set_markup(float(o))
-	 
-
 
 if __name__ == '__main__':
 	ventana = VentanaBalance()
 	ventana.show_all()
-	Gtk.main()
+	#Gtk.main()
 
 
 
