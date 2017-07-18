@@ -192,7 +192,7 @@ class VentanaBalance(Gtk.ApplicationWindow):
 if __name__ == '__main__':
 	ventana = VentanaBalance()
 	ventana.show_all()
-	#Gtk.main()
+	Gtk.main()
 
 
 
